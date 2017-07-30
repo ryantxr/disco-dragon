@@ -22,6 +22,12 @@ class Adventurer {
         $this->initialStrength($characterClass);
     }
 
+    // Add an item to the character's inventory
+    function addItem($itemName) {
+        $this->inventory[] = $itemName;
+    }
+
+
     // Set the character's initial intelligence.
     // This could take the race and character class into consideration.
     private function initialIntelligence($characterClass) {
@@ -50,7 +56,13 @@ class Adventurer {
         else {
             echo "Awake ...\n";
         }
-        echo implode("\n", $this->inventory) . "\n";
+        echo "You have ";
+        if ( count($this->inventory) ) {
+            echo "\n  " . implode("\n  ", $this->inventory) . "\n";
+        }
+        else {
+            echo "no items\n";
+        }
     }
 
 
@@ -68,7 +80,7 @@ class AdventurerHandler {
         }
     }
 
-
+    // Add an adventurer to the universe
     function addAdventurer($name, $race, $class) {
         $adventurer = new Adventurer($name, $race, $class, $this);
         $this->adventurers[] = $adventurer;
@@ -79,6 +91,7 @@ class AdventurerHandler {
 
 $handler = new AdventurerHandler;
 
+// Create some adventurers
 $handler->addAdventurer('Fred',     'Human',    'Warrior');
 $handler->addAdventurer('Jake',     'Orc',      'Warrior');
 $handler->addAdventurer('Sally',    'Elf',      'Cleric');
