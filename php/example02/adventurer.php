@@ -22,14 +22,19 @@ class Adventurer {
         $this->initialStrength($characterClass);
     }
 
+    // Set the character's initial intelligence.
+    // This could take the race and character class into consideration.
     private function initialIntelligence($characterClass) {
         $this->intelligence = 63;
     }
 
+    // Set the character's initial intelligence.
+    // This could take the race and character class into consideration.
     private function initialStrength($characterClass) {
         $this->strength = 42;
     }
 
+    // Output the character
     function out() {
         echo "**********\n";
         echo "Name: " . $this->name . "\n";
@@ -50,11 +55,6 @@ class Adventurer {
 
 
 }
-
-
-
-
-// print_r($a);
 
 
 class AdventurerHandler {
